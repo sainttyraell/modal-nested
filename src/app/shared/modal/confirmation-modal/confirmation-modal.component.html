@@ -1,0 +1,30 @@
+<app-basic-modal [title]="title"
+              (close)="close($event)"
+              (dismiss)="dismiss($event)">
+<!--<app-basic-modal>-->
+  <div class="container" content>
+    <div class="row mb-3" *ngIf="!!content">
+      <div class="col">
+        {{content}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" >
+        <button class="btn btn-primary" (click)="confirm()">yes</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" (click)="close()">no</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary" (click)="openBasModal()">open</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" footer>
+    <div class="row">
+      <div class="col">{{footerText}}</div>
+    </div>
+  </div>
+
+</app-basic-modal>
