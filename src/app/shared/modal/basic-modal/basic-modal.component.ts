@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   templateUrl: './basic-modal.component.html'
 })
 export class BasicModalComponent {
-  @Input() title = '';
+  @Input() title = 'modal.header.title';
   @Input() message = '';
   @Input() footerText = 'sample footer text';
 

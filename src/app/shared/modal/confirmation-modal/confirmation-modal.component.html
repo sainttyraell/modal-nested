@@ -1,7 +1,6 @@
 <app-basic-modal [title]="title"
-              (close)="close($event)"
-              (dismiss)="dismiss($event)">
-<!--<app-basic-modal>-->
+              (close)="close($event)">
+
   <div class="container" content>
     <div class="row mb-3" *ngIf="!!content">
       <div class="col">
@@ -10,10 +9,10 @@
     </div>
     <div class="row">
       <div class="col" >
-        <button class="btn btn-primary" (click)="confirm()">yes</button>
+        <button class="btn btn-primary" (click)="confirm()">{{'global.yes' | translate}}</button>
       </div>
       <div class="col">
-        <button class="btn btn-primary" (click)="close()">no</button>
+        <button class="btn btn-primary" (click)="close()">{{'global.no' | translate}}</button>
       </div>
       <div class="col">
         <button class="btn btn-primary" (click)="openBasModal()">open</button>

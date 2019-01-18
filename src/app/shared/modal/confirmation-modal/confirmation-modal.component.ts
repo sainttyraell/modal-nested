@@ -16,11 +16,12 @@ export class ConfirmationModalComponent extends AbstractModalComponent implement
   }
 
   confirm() {
-    console.log('confirmed');
+    alert('confirmed');
+    this.close();
   }
 
   openBasModal() {
-    this.modalService.open(ConfirmationModalComponent, {initialState: {title: 'ello', content: 'lorem ipsum'}});
+    this.modalService.open(ConfirmationModalComponent, {initialState: {title: 'ello', content: 'lorem ipsum', footerText: 'lalalalala'}});
   }
 
   ngOnInit() {}

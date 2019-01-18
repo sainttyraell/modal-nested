@@ -1,0 +1,13 @@
+{
+  "global": {
+    "confirm": "confirm",
+    "welcome": "welcome XYZ",
+    "yes": "yes",
+    "no": "no"
+  },
+  "modal": {
+    "header": {
+      "title": "default title"
+    }
+  }
+}

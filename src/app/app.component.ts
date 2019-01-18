@@ -10,7 +10,7 @@ import {ModalOptions} from 'ngx-bootstrap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'modal-nested';
+  title = 'global.welcome';
 
   openModalWithComponent() {
     const modalOptions: ModalOptions = {

@@ -4,6 +4,7 @@ import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap';
 @Injectable()
 export class ModalService {
   private activeModal: BsModalRef[] = [];
+  private bsModalRef: BsModalRef;
 
   open(component, modalOptions: ModalOptions) {
     const bsModalRef = this.bsModalService.show(component, modalOptions);
