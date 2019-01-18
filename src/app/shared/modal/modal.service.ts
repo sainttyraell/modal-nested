@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap';
 
 @Injectable()
-export class ModalService {
+export class ModalService implements OnDestroy {
   private activeModal: BsModalRef[] = [];
-  private bsModalRef: BsModalRef;
+  private onHideSubscription;
 
   open(component, modalOptions: ModalOptions) {
     const bsModalRef = this.bsModalService.show(component, modalOptions);
     this.activeModal.push(bsModalRef);
-    console.log(bsModalRef);
-    console.log(this.activeModal);
   }
 
   close() {
@@ -20,7 +18,17 @@ export class ModalService {
     this.activeModal.splice(index, 1);
   }
 
+  ngOnDestroy(): void {
+    this.onHideSubscription.unsubscribe();
+  }
+
   constructor(
     private bsModalService: BsModalService
-  ) {}
+  ) {
+    this.onHideSubscription = this.bsModalService.onHide.subscribe((event) => {
+      if (event === 'backdrop-click') {
+        this.activeModal.splice(this.activeModal.length - 1, 1);
+      }
+    });
+  }
 }
