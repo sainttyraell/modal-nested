@@ -26,7 +26,7 @@ export class ModalService implements OnDestroy {
     private bsModalService: BsModalService
   ) {
     this.onHideSubscription = this.bsModalService.onHide.subscribe((event) => {
-      if (event === 'backdrop-click') {
+      if (event === 'backdrop-click' || event === 'esc') {
         this.activeModal.splice(this.activeModal.length - 1, 1);
       }
     });

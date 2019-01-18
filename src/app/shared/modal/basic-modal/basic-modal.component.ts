@@ -1,19 +1,25 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input, TemplateRef} from '@angular/core';
+import {AbstractModalComponent} from '../component/modal.component';
+import {ModalService} from '../modal.service';
 
 @Component({
   selector: 'app-basic-modal',
   templateUrl: './basic-modal.component.html'
 })
-export class BasicModalComponent {
+export class BasicModalComponent extends AbstractModalComponent {
+  @Input() headerTemplate: TemplateRef<any>;
+  @Input() bodyTemplate: TemplateRef<any>;
+  @Input() footerTemplate: TemplateRef<any>;
+
   @Input() title = 'modal.header.title';
-  @Input() message = '';
-  @Input() footerText = 'sample footer text';
+  @Input() bodyText = 'basic modal body text';
+  @Input() footerText = 'basic modal footer text';
 
-  @Output() public close: EventEmitter<void> = new EventEmitter<void>();
-
-  onClose(event: any) {
-    this.close.emit();
+  close() {
+    this.modalService.close();
   }
 
-  constructor() {}
+  constructor(protected modalService: ModalService) {
+    super(modalService);
+  }
 }

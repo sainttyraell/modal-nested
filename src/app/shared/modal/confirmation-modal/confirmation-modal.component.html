@@ -1,10 +1,8 @@
-<app-basic-modal [title]="title"
-              (close)="close($event)">
-
+<ng-template #bodyTemplate>
   <div class="container" content>
-    <div class="row mb-3" *ngIf="!!content">
+    <div class="row mb-3" *ngIf="!!bodyText">
       <div class="col">
-        {{content}}
+        {{bodyText}}
       </div>
     </div>
     <div class="row">
@@ -19,11 +17,17 @@
       </div>
     </div>
   </div>
+</ng-template>
 
-  <div class="container" footer>
+<ng-template #footerTemplate>
+  <div class="container">
     <div class="row">
       <div class="col">{{footerText}}</div>
     </div>
   </div>
+</ng-template>
 
+<app-basic-modal [title]="title"
+                 [bodyTemplate]="bodyTemplate"
+                 [footerTemplate]="footerTemplate">
 </app-basic-modal>

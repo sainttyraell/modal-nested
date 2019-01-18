@@ -16,7 +16,7 @@ export class AppComponent {
     const modalOptions: ModalOptions = {
       initialState: {
         title: 'basic title',
-        message: 'basic message',
+        bodyText: 'conf modal message',
         footerText: 'conf modal footer'
       },
       backdrop: 'static'

@@ -1,14 +1,24 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">{{ title | translate}}</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="onClose($event)">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <ng-container [ngTemplateOutlet]="headerTemplate ? headerTemplate : defaultHeader"></ng-container>
 </div>
 <div class="modal-body">
-  <ng-content select="[content]"></ng-content>
+  <ng-container [ngTemplateOutlet]="bodyTemplate ? bodyTemplate : defaultBody"></ng-container>
 </div>
 <div class="modal-footer">
-  <div #footerRef>
-    <ng-content select="[footer]"></ng-content>
+  <div>
+    <ng-container [ngTemplateOutlet]="footerTemplate ? footerTemplate : defaultFooter"></ng-container>
   </div>
 </div>
+
+<ng-template #defaultHeader>
+  <h4 class="modal-title pull-left">{{ title | translate}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</ng-template>
+<ng-template #defaultBody>
+  <div>{{bodyText}}</div>
+</ng-template>
+<ng-template #defaultFooter>
+  <div>{{footerText}}</div>
+</ng-template>

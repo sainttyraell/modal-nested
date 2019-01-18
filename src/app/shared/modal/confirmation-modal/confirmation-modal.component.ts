@@ -8,7 +8,7 @@ import {ModalService} from '../modal.service';
 })
 export class ConfirmationModalComponent extends AbstractModalComponent implements OnInit {
   @Input() title = 'Are you sure?';
-  @Input() content = '';
+  @Input() bodyText = '';
   @Input() footerText = '';
 
   close() {
