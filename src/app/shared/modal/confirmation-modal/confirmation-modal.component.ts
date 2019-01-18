@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AbstractModalComponent} from '../component/modal.component';
 import {ModalService} from '../modal.service';
+import {BasicModalComponent} from '../basic-modal/basic-modal.component';
 
 @Component({
   selector: 'app-confirmation-modal-component',
@@ -21,7 +22,11 @@ export class ConfirmationModalComponent extends AbstractModalComponent implement
   }
 
   openBasModal() {
-    this.modalService.open(ConfirmationModalComponent, {initialState: {title: 'ello', content: 'lorem ipsum', footerText: 'lalalalala'}});
+    this.modalService.open(ConfirmationModalComponent, {initialState: {title: 'ello', bodyText: 'lorem ipsum', footerText: 'lalalalala'}});
+  }
+
+  openConfModal() {
+    this.modalService.open(BasicModalComponent, {initialState: {title: 'basic', bodyText: 'basic ipsum'}});
   }
 
   ngOnInit() {}

@@ -5,20 +5,20 @@
   <ng-container [ngTemplateOutlet]="bodyTemplate ? bodyTemplate : defaultBody"></ng-container>
 </div>
 <div class="modal-footer">
-  <div>
-    <ng-container [ngTemplateOutlet]="footerTemplate ? footerTemplate : defaultFooter"></ng-container>
-  </div>
+  <ng-container [ngTemplateOutlet]="footerTemplate ? footerTemplate : defaultFooter"></ng-container>
 </div>
 
 <ng-template #defaultHeader>
-  <h4 class="modal-title pull-left">{{ title | translate}}</h4>
+  <h4 class="modal-title pull-left" [translate]="title"></h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
     <span aria-hidden="true">&times;</span>
   </button>
 </ng-template>
+
 <ng-template #defaultBody>
   <div>{{bodyText}}</div>
 </ng-template>
+
 <ng-template #defaultFooter>
   <div>{{footerText}}</div>
 </ng-template>

@@ -15,7 +15,6 @@ export class ModalService implements OnDestroy {
     const index = this.activeModal.length - 1;
     const bsModalRef = this.activeModal[index]
     bsModalRef.hide();
-    this.activeModal.splice(index, 1);
   }
 
   ngOnDestroy(): void {
@@ -26,9 +25,7 @@ export class ModalService implements OnDestroy {
     private bsModalService: BsModalService
   ) {
     this.onHideSubscription = this.bsModalService.onHide.subscribe((event) => {
-      if (event === 'backdrop-click' || event === 'esc') {
-        this.activeModal.splice(this.activeModal.length - 1, 1);
-      }
+      this.activeModal.splice(this.activeModal.length - 1, 1);
     });
   }
 }
