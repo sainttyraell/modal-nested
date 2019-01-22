@@ -1,0 +1,8 @@
+<app-form-item [controlName]="controlName"
+                [label]="label"
+               [formGroup]="formGroup"
+               [formSubmitted]="formSubmitted"
+               [errorMessage]="errorMessage"
+>
+  <input class="form-control" formControlName="{{controlName}}" />
+</app-form-item>

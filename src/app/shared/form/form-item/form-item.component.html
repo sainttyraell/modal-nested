@@ -1,0 +1,14 @@
+<div class="form-group">
+  <div class="row">
+    <label for="{{controlName}}"
+           [innerHTML]="label"
+    ></label>
+  </div>
+  <div class="row">
+    <ng-content></ng-content>
+  </div>
+  <app-form-control-error [errorMessage]="errorMessage"
+                          [formControl]="control"
+                          [formSubmitted]="formSubmitted"
+  ></app-form-control-error>
+</div>

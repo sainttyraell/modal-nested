@@ -1,6 +1,26 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1 [translate]="title"></h1>
-  <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Create modal</button>
+<div class="container">
+  <div style="text-align:center" class="row">
+    <h1 [translate]="title"></h1>
+    <button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Create modal</button>
+  </div>
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="submit() " #formDir="ngForm">
+      <app-form-item-input
+        [controlName]="'name'"
+        [label]="'to jest label'"
+        [formGroup]="form"
+        [formSubmitted]="formDir.submitted"
+        [errorMessage]="'this is error message'"
+      ></app-form-item-input>
+      <app-form-item-input
+        [controlName]="'surname'"
+        [label]="'surname'"
+        [formGroup]="form"
+        [formSubmitted]="formDir.submitted"
+        [errorMessage]="'this is error message'"
+      ></app-form-item-input>
+      <button type="submit">submit</button>
+    </form>
+  </div>
 </div>
 
